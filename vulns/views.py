@@ -23,6 +23,9 @@ def addnote(request):
 @login_required
 def deletenote(request):
     text = request.GET.get("note")
-    note = Note.objects.get(text__icontains=text)
-    note.delete()
+    if not text:
+        return redirect("/")
+    notes = Note.objects.raw("SELECT * FROM vulns_note WHERE text LIKE '%{}%'".format(text))
+    for note in notes:
+        note.delete()
     return redirect("/")
