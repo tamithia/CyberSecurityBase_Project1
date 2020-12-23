@@ -5,17 +5,38 @@
     </head>
 
     <body>
-        <h1>Free fork knife w-bucks</h1>
-        <p>Please enter credit card details below:</p>
-        <form>
-            <label for="cardno">Mommys credit card number:</label><br>
-            <input id="cardno" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx"><br>
-            <label for="expdate">The cool date right below it...</label><br>
-            <input id="expdate" type="month"><br>
-            <label for="cvv">...and the three epic numbers on the back!</label><br>
-            <input id="cvv" type="tel" inputmode="numeric" pattern="[0-9\s]{3,3}" autocomplete="cc-cvv" maxlength="3" placeholder="000"><br>
-            <input type="submit" value="GO! FREE BUXX!"><br>
+        <h1>Online notes app</h1>
+        <br>
+        <hr>
+
+        <h2>Your notes:</h2>
+        <ul>
+        {% for note in notes %}
+            {{note|safe}}
+        {% endfor %}
+        </ul>
+        <br>
+        <hr>
+
+        <h2>Add a note:</h2>
+        <form action="/addnote" method="get">
+            <label for="note">Note text:</label><br>
+            <input id="note" name="note" type="text" maxlength=200><br>
+            <label for="colour">And pick a colour:<label><br>
+            <input id="colour" name="colour" type="color"><br>
+            <input type="submit" value="Add my note!"><br>
         </form>
+        <br>
+        <hr>
+
+        <h2>Remove a note:</h2>
+        <form action="/deletenote" method="get">
+            <label for="note">Note text contains:</label><br>
+            <input id="note" name="note" type="text" maxlength=200><br>
+            <input type="submit" value="Delete the note!"><br>
+        </form>
+        <br>
+        <hr>
 
         <a href="/logout/"><button>Log out</button></a>
     </body>
