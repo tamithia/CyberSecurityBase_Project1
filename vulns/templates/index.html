@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Totally secure webstie :)))</title>
+        <title>Totally secure site :)</title>
     </head>
 
     <body>
-        <h1>Online notes app</h1>
+        <h1>Online secret vault</h1>
+        <p>
+            Welcome to the secret vault! Feel free to store your deepest
+            and darkest secrets here.
+        </p>
+        <p>
+            All data will be kept 100% private.
+        </p>
         <br>
         <hr>
 
-        <h2>Your notes:</h2>
+        <h2>Your secrets:</h2>
         <ul>
         {% for note in notes %}
             {{note|safe}}
@@ -18,7 +25,7 @@
         <br>
         <hr>
 
-        <h2>Add a note:</h2>
+        <h2>Add a secret:</h2>
         <form action="/addnote" method="get">
             <label for="note">Note text:</label><br>
             <input id="note" name="note" type="text" maxlength=200><br>
@@ -29,9 +36,9 @@
         <br>
         <hr>
 
-        <h2>Remove a note:</h2>
+        <h2>Remove a secret:</h2>
         <form action="/deletenote" method="get">
-            <label for="note">Note text contains:</label><br>
+            <label for="note">Delete all notes whose secret text contains:</label><br>
             <input id="note" name="note" type="text" maxlength=200><br>
             <input type="submit" value="Delete the note!"><br>
         </form>

@@ -25,7 +25,7 @@ def deletenote(request):
     text = request.GET.get("note")
     if not text:
         return redirect("/")
-    notes = Note.objects.raw("SELECT * FROM vulns_note WHERE text LIKE '%{}%'".format(text))
+    notes = Note.objects.raw("SELECT * FROM vulns_note WHERE owner = {} AND text LIKE '%{}%'".format(request.user, text))
     for note in notes:
         note.delete()
     return redirect("/")
