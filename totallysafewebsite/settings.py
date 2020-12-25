@@ -52,6 +52,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'totallysafewebsite.urls'
+SESSION_ENGINE = 'totallysafewebsite.securesessions'
 
 TEMPLATES = [
     {
