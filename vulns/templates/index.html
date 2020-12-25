@@ -27,6 +27,7 @@
 
         <h2>Add a secret:</h2>
         <form action="/addnote" method="get">
+            <input type="hidden" name="user" value="{{currentuser}}" />
             <label for="note">Note text:</label><br>
             <input id="note" name="note" type="text" maxlength=200><br>
             <label for="colour">And pick a colour:<label><br>
